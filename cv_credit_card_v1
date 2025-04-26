@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A. Praizner - CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        /* Custom styles for the 3D flip effect */
+        .perspective {
+            perspective: 1000px; /* Adds depth for the 3D effect */
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s; /* Smooth transition for the flip */
+            transform-style: preserve-3d; /* Enables 3D positioning of children */
+        }
+        .card.flipped .card-inner {
+            transform: rotateY(180deg); /* Rotates the card on the Y-axis */
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Hides the back face when facing away (Safari) */
+            backface-visibility: hidden; /* Hides the back face when facing away */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distributes space between items */
+            border-radius: 1rem; /* Standard Tailwind rounded-xl */
+            padding: 1.5rem; /* Standard Tailwind p-6 */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Standard Tailwind shadow-md */
+        }
+        .card-back {
+            transform: rotateY(180deg); /* Positions the back face initially */
+            overflow-y: auto; /* Add scroll for potentially long work experience */
+        }
+        /* Style links for better visibility */
+        a {
+            color: #3b82f6; /* Tailwind blue-500 */
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #1d4ed8; /* Tailwind blue-700 */
+        }
+        /* Ensure consistent font */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple scrollbar styling for the back */
+        .card-back::-webkit-scrollbar {
+            width: 8px;
+        }
+        .card-back::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .card-back::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .card-back::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen flex items-center justify-center p-4">
+
+    <div class="perspective w-full max-w-lg h-[24rem] sm:h-[26rem] md:h-[28rem]">
+        <div class="card w-full h-full cursor-pointer" id="cvCard">
+            <div class="card-inner">
+                <div class="card-face card-front bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold mb-2">A. PRAIZNER</h1>
+                        <p class="text-sm sm:text-base text-blue-100 mb-4">REMOTE / UKRAINE</p>
+                        <div class="border-t border-blue-400 pt-4 mb-4">
+                            <h2 class="text-lg sm:text-xl font-semibold mb-2">Summary</h2>
+                            <ul class="list-disc list-inside text-sm sm:text-base space-y-1 text-blue-50">
+                                <li>Android Developer (Java/Kotlin since 2013/2016)</li>
+                                <li>KMP Developer (Kotlin Multiplatform since Nov 2021)</li>
+                                <li>iOS Developer (Swift since Nov 2022)</li>
+                                <li>Full Development Cycle (Concept to Release)</li>
+                                <li>Cross-platform Architecture with KMP</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="border-t border-blue-400 pt-4 text-xs sm:text-sm">
+                        <p class="font-semibold mb-1">Contact:</p>
+                        <div class="flex flex-wrap gap-x-4 gap-y-1">
+                             <a href="mailto:scijoker@gmail.com" class="text-blue-100 hover:text-white"><i class="fas fa-envelope mr-1"></i> scijoker@gmail.com</a>
+                             <a href="https://github.com/ablack13" target="_blank" rel="noopener noreferrer" class="text-blue-100 hover:text-white"><i class="fab fa-github mr-1"></i> github.com/ablack13</a>
+                             <a href="https://linkedin.com/in/andrewprayzner/" target="_blank" rel="noopener noreferrer" class="text-blue-100 hover:text-white"><i class="fab fa-linkedin mr-1"></i> linkedin.com/in/andrewprayzner</a>
+                        </div>
+                    </div>
+                     <div class="absolute bottom-2 right-3 text-xs text-blue-200 opacity-75">Click to flip</div>
+                </div>
+
+                <div class="card-face card-back bg-gradient-to-br from-gray-700 to-gray-900 text-gray-200">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold mb-4 border-b border-gray-600 pb-2">Work Experience</h2>
+                        <div class="space-y-3 text-sm sm:text-base">
+                            <div>
+                                <p class="font-semibold text-white">MOBILE KMP DEVELOPER (Android/iOS)</p>
+                                <p class="text-xs text-gray-400">Jul 2021 - Present | NDA (Central Europe)</p>
+                            </div>
+                             <div>
+                                <p class="font-semibold text-white">ANDROID DEVELOPER (Contract)</p>
+                                <p class="text-xs text-gray-400">Feb 2021 - May 2021 | NDA (Central Europe)</p>
+                            </div>
+                             <div>
+                                <p class="font-semibold text-white">ANDROID DEVELOPER (Contract)</p>
+                                <p class="text-xs text-gray-400">Dec 2020 - Feb 2021 | SEVEN (Lviv, UA)</p>
+                            </div>
+                             <div>
+                                <p class="font-semibold text-white">ANDROID DEVELOPER</p>
+                                <p class="text-xs text-gray-400">June 2018 - Nov 2020 | NDA (Eastern Europe)</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-white">ANDROID DEVELOPER</p>
+                                <p class="text-xs text-gray-400">Nov 2014 - May 2018 | NimbusWeb Inc (OH, US)</p>
+                            </div>
+                             <div>
+                                <p class="font-semibold text-white">ANDROID DEVELOPER</p>
+                                <p class="text-xs text-gray-400">Feb 2013 - Nov 2014 | [BVBLogic] (I-F, UA)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-2 right-3 text-xs text-gray-400 opacity-75">Click to flip</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the card element
+        const card = document.getElementById('cvCard');
+
+        // Add event listener for click/tap
+        card.addEventListener('click', () => {
+            // Toggle the 'flipped' class on the card element
+            card.classList.toggle('flipped');
+        });
+
+        // Add event listener for touchstart for mobile devices
+        card.addEventListener('touchstart', () => {
+            // No action needed here other than registering the event
+            // This helps ensure responsiveness on touch devices
+        }, { passive: true }); // Use passive listener for performance
+    </script>
+
+</body>
+</html>
