@@ -65,6 +65,23 @@
         .card-back::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        /* Styles for QR code */
+        .qr-code {
+            position: absolute;
+            top: 1.5rem; /* Matches the padding of the card */
+            right: 1.5rem; /* Matches the padding of the card */
+            width: 60px; /* Adjust size as needed */
+            height: 60px; /* Adjust size as needed */
+            z-index: 10; /* Ensure it's above other content */
+        }
+         @media (min-width: 640px) { /* Apply for small screens and up */
+            .qr-code {
+                width: 80px; /* Slightly larger on sm screens */
+                height: 80px;
+            }
+        }
+
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,6 +93,7 @@
         <div class="card w-full h-full cursor-pointer" id="cvCard">
             <div class="card-inner">
                 <div class="card-face card-front bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
+                    <img src="qr.png" alt="QR Code" class="qr-code">
                     <div>
                         <h1 class="text-2xl sm:text-3xl font-bold mb-2">A. PRAIZNER</h1>
                         <p class="text-sm sm:text-base text-blue-100 mb-4">REMOTE / UKRAINE</p>
