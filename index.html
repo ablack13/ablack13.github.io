@@ -33,6 +33,8 @@
             border-radius: 1rem; /* Standard Tailwind rounded-xl */
             padding: 1.5rem; /* Standard Tailwind p-6 */
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Standard Tailwind shadow-md */
+            /* Ensure relative positioning context for absolute QR code */
+            position: relative; /* This is already implicitly set by card-face being absolute, but good to be explicit */
         }
         .card-back {
             transform: rotateY(180deg); /* Positions the back face initially */
@@ -71,17 +73,22 @@
             position: absolute;
             top: 1.5rem; /* Matches the padding of the card */
             right: 1.5rem; /* Matches the padding of the card */
-            width: 60px; /* Adjust size as needed */
-            height: 60px; /* Adjust size as needed */
+            width: 50px; /* Default size for mobile */
+            height: 50px; /* Default size for mobile */
             z-index: 10; /* Ensure it's above other content */
         }
          @media (min-width: 640px) { /* Apply for small screens and up */
             .qr-code {
-                width: 80px; /* Slightly larger on sm screens */
+                width: 70px; /* Slightly larger on sm screens */
+                height: 70px;
+            }
+        }
+         @media (min-width: 768px) { /* Apply for medium screens and up */
+            .qr-code {
+                width: 80px; /* Larger on md screens */
                 height: 80px;
             }
         }
-
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,9 +101,11 @@
             <div class="card-inner">
                 <div class="card-face card-front bg-gradient-to-br from-blue-500 to-indigo-600 text-white">
                     <img src="qr.png" alt="QR Code" class="qr-code">
-                    <div>
+                    <div class="pr-20 sm:pr-24 md:pr-28">
                         <h1 class="text-2xl sm:text-3xl font-bold mb-2">A. PRAIZNER</h1>
                         <p class="text-sm sm:text-base text-blue-100 mb-4">REMOTE / UKRAINE</p>
+                    </div>
+                    <div>
                         <div class="border-t border-blue-400 pt-4 mb-4">
                             <h2 class="text-lg sm:text-xl font-semibold mb-2">Summary</h2>
                             <ul class="list-disc list-inside text-sm sm:text-base space-y-1 text-blue-50">
